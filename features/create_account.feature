@@ -33,6 +33,7 @@ Scenario: create an account with new username and email
     Given that I filled email field with "new_account@berkeley.edu"
     Given that I filled password field with "asdf"
     When I pressed Sign Up button
+    Then I should be on Finished Sign Up Page
     Then I should see "Congratulations on signing up"
 
 Scenario: create an account with non-berkeley email
