@@ -30,7 +30,6 @@ gem 'jquery-turbolinks'
 
 #heroku gem to convert to postgres
 gem 'taps'
-gem 'sqlite3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
