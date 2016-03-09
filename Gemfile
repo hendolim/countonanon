@@ -28,6 +28,9 @@ gem 'devise', '3.4.1'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 
+#heroku gem to convert to postgres
+gem 'taps'
+gem 'sqlite3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -38,6 +41,10 @@ gem 'jquery-turbolinks'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -46,7 +53,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'factory_girl'
-
   gem 'pg'
 end
 
