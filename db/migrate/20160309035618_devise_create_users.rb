@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :locked_at
       
       # SafeSpace User Added Model Attributes
-      t.string :name
+      t.string :username
 
 
       t.timestamps

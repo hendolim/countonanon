@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # SafeSpace Added Gems
+  # Devise Tutorial  http://www.sitepoint.com/devise-authentication-in-depth/
+  # Devise Demo      https://sitepoint-devise.herokuapp.com/
 gem 'devise', '3.4.1'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
