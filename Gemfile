@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # SafeSpace Added Gems
 gem 'devise', '3.4.1'
 gem 'bootstrap-sass'
+gem 'jquery-turbolinks'
 
 
 # Use ActiveModel has_secure_password
