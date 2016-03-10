@@ -4,27 +4,27 @@ Feature: sign in to user account
     So that I can use other features of SafeSpace
     I want to be able to sign in with my username and password
 
-Background: I already have my username, berkeley email, and password tuple in the database
+Background:
   
-    Given that the following users exist:
+    Given the following Users exist:
     
     |username          |email                   |password           |
     |my_account        |my_account@berkeley.edu |qwerty             |
     
-    And I am on SafeSpace sign in page
+    And I am on the Sign In page
 
 Scenario: Sign in with correct username and password pair
-    Given that I filled username field with "my_account"
-    Given that I filled password field with "qwerty"
-    When I pressed the Sign In button
-    Then I should be on Chat page
+    When I fill in "Email" with "my_account@berkeley.edu"
+    And I fill in "Password" with "qwerty"
+    And I press "Log in"
+    Then I should be on the chat page
 
 Scenario: Sign in with incorrect username and password pair
-    Given that I filled username field with "does_not_exist"
-    Given that I filled password field with "qwerty"
-    When I pressed the Sign In button
-    Then I should be on Sign In page
-    Then I should see flash message "Incorrect password or username"
+    When I fill in "Email" with "does_not_exist@berkeley.edu"
+    And I fill in "Password" with "qwerty"
+    And I press "Log in"
+    Then I should be on the Sign In page
+    And I should see "Incorrect email or password"
 
 
     

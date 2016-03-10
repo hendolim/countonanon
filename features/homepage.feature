@@ -7,6 +7,6 @@ Feature: display home page when user is not logged in
 Background: User is not logged in
 
 Scenario: visit the SafeSpace home page
-  When I am not logged in
-  And  I go to the SafeSpace home page
+  Given I am not logged in
+  When  I go to the SafeSpace home page
   Then I should see: About, Contact, Sign Up, Sign In, SafeSpace
