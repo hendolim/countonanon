@@ -18,7 +18,7 @@ Scenario: create an account with existing username
     And I fill in "Password" with "asdfghjk"
     And I fill in "Password confirmation" with "asdfghjk"
     And I press "Sign up"
-    And I should see "Username already exists"
+    And I should see "Username has already been taken"
 
 Scenario: create an account with existing email
     When I fill in "Username" with "new_account"
