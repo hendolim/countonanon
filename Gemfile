@@ -53,6 +53,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl'
   gem 'pg'
+  gem 'sqlite3'
 end
 
 group :development do
