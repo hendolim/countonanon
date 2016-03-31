@@ -1,0 +1,34 @@
+<% last_user = nil %>
+<% @messages.each do |message| %>
+    <% if message.body %>
+        <% user = User.find(message.user_id) %>
+          
+        <li>
+        <% if current_user.username.eql? user.username %>
+            <div style="text-align:right">
+                <% if !last_user.eql? user.username %>
+                  <div style="text-align:center">
+                     <small class="text-muted"><%= message.message_time %></small> 
+                  </div>
+                  <h4 class="media-heading"> <%= user.username %></h4>
+                  <% last_user = user.username %>
+                <% end %>
+                <%= message.body %>
+            </div>
+            
+        <% else %>
+            <div>
+                <% if !last_user.eql? user.username %>
+                  <div style="text-align:center">
+                     <small class="text-muted"><%= message.message_time %></small> 
+                  </div>
+                  <h4 class="media-heading"> <%= user.username %></h4>
+                  <% last_user = user.username %>
+                <% end %>
+                <%= message.body %>
+            </div>
+            
+        <% end %>
+        </li>
+    <% end %>
+<% end %>
