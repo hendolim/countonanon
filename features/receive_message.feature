@@ -10,16 +10,18 @@ Background:
     |account_2          |account_2@berkeley.edu |12345678           |
     |account_3          |account_3@berkeley.edu |12345678           |
 
-    Given account_1 send message "Hello" to account_2
+    Given I am logged in as account_1@berkeley.edu with qwertyuiop
+    Then I send message "Hello" to account_2
+    And I log out
 
 Scenario: Correct logged in user
-	Given I am logged in as account_2
-	And I am on the Chat page
-	When I press tab account_1
+	Given I am logged in as account_2@berkeley.edu with 12345678
+	And I follow "Chat"
+	When I follow "account_1"
 	Then I should see "Hello"
 
 Scenario: Incorrect logged in user
-	Given I am logged in as account_3
-	And I am on the Chat page
-	When I press tab account_1
+	Given I am logged in as account_3@berkeley.edu with 12345678
+	And I follow "Chat"
+	When I follow "account_1"
 	Then I should not see "Hello"
