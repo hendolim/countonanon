@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  after_filter :user_activity
+
+  private
+
+  def user_activity
+  	current_user.try :touch
+  end
+
   protected
   
   def configure_permitted_parameters
