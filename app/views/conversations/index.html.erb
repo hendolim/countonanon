@@ -10,14 +10,21 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <div class="horizontal-align">
-            <% if recipient.online? %>
+          <% if recipient.online? %>
+            <div class="horizontal-align">
               <div class="online-status-indicator" style="display: inline-block;"></div>
-            <% else %>
+              <%= link_to recipient.username, conversation_messages_path(conversation), :class => "contact-list-name" %>
+            </div>
+            <div class="status-text">Online</div>
+          <% else %>
+            <div class="horizontal-align">
               <div class="offline-status-indicator" style="display: inline-block;"></div>
-            <% end %>
-            <%= link_to recipient.username, conversation_messages_path(conversation)%>
-          </div>
+              <div>
+                <%= link_to recipient.username, conversation_messages_path(conversation), :class => "contact-list-name" %>
+              </div>
+            </div>
+            <div class="status-text">Offline</div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
