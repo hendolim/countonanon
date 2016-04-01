@@ -23,7 +23,12 @@ Scenario: Send a message to user2
 Scenario: Send an empty message to user2
     When I fill in "message_body" with ""
     And I press "Send"
-    Then I should see "Please fill out this field"
+    Then I should see "Message cannot be blank"
+    
+    Scenario: Send an empty message to user2
+    When I fill in "message_body" with " "
+    And I press "Send"
+    Then I should see "Message cannot be blank"
     
 
 

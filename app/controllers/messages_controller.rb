@@ -28,9 +28,10 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-    if @message.save
-      redirect_to conversation_messages_path(@conversation)
+    if !@message.save
+      flash[:message] = "Message cannot be blank"
     end
+    redirect_to conversation_messages_path(@conversation)
   end
 
 private

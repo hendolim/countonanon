@@ -10,7 +10,12 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <div>
+          <div class="horizontal-align">
+            <% if recipient.online? %>
+              <div class="online-status-indicator" style="display: inline-block;"></div>
+            <% else %>
+              <div class="offline-status-indicator" style="display: inline-block;"></div>
+            <% end %>
             <%= link_to recipient.username, conversation_messages_path(conversation)%>
           </div>
         <% end %>
@@ -26,7 +31,14 @@
     <% @users.each do |user| %>
       <% if user.id != current_user.id %>
       <div class="item">
-        <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+        <div class="horizontal-align">
+            <% if user.online? %>
+              <div class="online-status-indicator" style="display: inline-block;"></div>
+            <% else %>
+              <div class="offline-status-indicator" style="display: inline-block;"></div>
+            <% end %>
+          <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+        </div>
       </div>
       <% end %>
     <% end %>
