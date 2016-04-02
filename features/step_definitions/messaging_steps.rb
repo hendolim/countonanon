@@ -29,4 +29,11 @@ When (/I am chatting with (.*)$/) do |user2|
 	visit conversation_messages_path(@conversation)
 end
 
+When /^I am in (.*) browser$/ do |name|
+  Capybara.session_name = name
+end
 
+When /^(?!I am in)(.*(?= in)) in (.*) browser$/ do |step, name|
+  When %(I am in #{name} browser)
+  And step
+end

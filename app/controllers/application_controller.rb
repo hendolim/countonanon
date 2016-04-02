@@ -9,8 +9,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_activity
-  	current_user.try :touch
+  def user_activity  
+    if @current_user
+  	 @current_user.try(:touch)
+    end
   end
 
   protected

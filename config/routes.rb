@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:destroy => "destroy"}
   root 'static_pages#home'
   get 'about' => 'static_pages#about', :as => :home_about
   get 'contact' => 'static_pages#contact', :as => :home_contact

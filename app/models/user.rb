@@ -14,7 +14,15 @@ class User < ActiveRecord::Base
   end
 
   def online?
-    updated_at > 2.minutes.ago
+    if current_sign_in_at.present? 
+      online_status = last_sign_out_at.present? ? current_sign_in_at > last_sign_out_at : true
+      if (online_status)
+        online_status = updated_at > 1.minutes.ago
+      end
+      online_status
+    else
+      false
+    end
   end
 
 end

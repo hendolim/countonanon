@@ -15,7 +15,7 @@ module NavigationHelpers
         '/users/sign_in'
     
     when /^the chat page$/
-        
+        '/conversations'
     
     else
       begin
