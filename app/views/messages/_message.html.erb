@@ -3,17 +3,16 @@
     <% if message.body %>
         <% user = User.find(message.user_id) %>
           
-        <li>
         <% if current_user.username.eql? user.username %>
             <div style="text-align:right">
                 <% if !last_user.eql? user.username %>
                   <div style="text-align:center">
                      <small class="text-muted"><%= message.message_time %></small> 
                   </div>
-                  <h4 class="media-heading"> <%= user.username %></h4>
+                  <b class="message-username"> <%= user.username %></b>
                   <% last_user = user.username %>
                 <% end %>
-                <%= message.body %>
+                <div class="message" id="curr"><%= message.body %></div>
             </div>
             
         <% else %>
@@ -22,13 +21,12 @@
                   <div style="text-align:center">
                      <small class="text-muted"><%= message.message_time %></small> 
                   </div>
-                  <h4 class="media-heading"> <%= user.username %></h4>
+                  <b class="message-username"> <%= user.username %></b>
                   <% last_user = user.username %>
                 <% end %>
-                <%= message.body %>
+                <div class="message" id="other"><%= message.body %></div>
             </div>
             
         <% end %>
-        </li>
     <% end %>
 <% end %>
