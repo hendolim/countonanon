@@ -16,6 +16,8 @@ module NavigationHelpers
     
     when /^the chat page$/
         '/conversations'
+        
+    when /^the search page$/
     
     else
       begin
