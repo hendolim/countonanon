@@ -5,6 +5,7 @@
     <title>SafeSpace</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'toggle-button.js' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -24,12 +25,25 @@
         </ul>
         <ul class="nav navbar-nav pull-right">
           <% if user_signed_in? %>
+            <li>
+              <% if !current_user.appear_offline %>
+                <div class="online-status-indicator" style="margin-top:22px;margin-bottom:22px"></div>
+              <% else %>
+                <div class="offline-status-indicator" style="margin-top:22px;margin-bottom:22px"></div>
+                </div>
+              <% end %>
+            </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-left:5px">
                 <%= current_user.username %>
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
+                <% if !current_user.appear_offline %>
+                   <li name="toggle-button"><%= link_to 'Appear Offline' %></li>
+                <% elsif curent_user.appear_offline %>
+                   <li name="toggle-button"><%= link_to 'Appear Online'%></li>
+                <% end %>
                 <li><%= link_to 'Profile', edit_user_registration_path %></li>
                 <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
               </ul>
@@ -59,7 +73,4 @@
     </div>
   
   </body>
-  
-  
-  
 </html>

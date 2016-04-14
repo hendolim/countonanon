@@ -10,7 +10,7 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <% if recipient.online? %>
+          <% if recipient.online? && !recipient.appear_offline %>
             <div class="horizontal-align">
               <div class="online-status-indicator" style="display: inline-block;"></div>
               <%= link_to recipient.username, conversation_messages_path(conversation), :class => "contact-list-name" %>

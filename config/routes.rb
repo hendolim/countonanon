@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about', :as => :home_about
   get 'contact' => 'static_pages#contact', :as => :home_contact
   
-  
   resources :conversations do
     resources :messages
   end
