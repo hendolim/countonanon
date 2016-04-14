@@ -1,4 +1,3 @@
-
 window.client = new Faye.Client('/faye')
 
 client.addExtension {

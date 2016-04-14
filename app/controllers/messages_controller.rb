@@ -28,13 +28,18 @@ class MessagesController < ApplicationController
 
   def create
     respond_to do |format|
-      @messages = @conversation.messages
-      @message = @conversation.messages.new(message_params)
-      if !@message.save
-        flash[:message] = "Message cannot be blank"
+      if current_user
+        @messages = @conversation.messages
+        @message = @conversation.messages.new(message_params)
+        if !@message.save
+          flash[:message] = "Message cannot be blank"
+        end
+        format.js
+        format.html {redirect_to conversation_messages_path(@conversation)}
+      else
+        format.js
+        format.html {redirect_to root_url}
       end
-      format.js
-      format.html {redirect_to conversation_messages_path(@conversation)}
     end
   end
 

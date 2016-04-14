@@ -15,6 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap/dropdown
 //= require turbolinks
-//= require_tree .
 //= require faye
 //= require messages
+//= require_tree .

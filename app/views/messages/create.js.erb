@@ -4,7 +4,7 @@ publisher = client.publish('/messages', {
 
 publisher.callback(function() {
   $('#message_body').val('');
-  $('#new_message').find("input[type='submit']").val('Submit').prop('disabled', false)
+  $('#new_message').find("input[type='submit']").val('Submit').prop('disabled', false);
 });
 
 publisher.errback(function() {
