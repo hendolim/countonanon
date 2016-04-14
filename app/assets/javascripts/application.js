@@ -16,3 +16,5 @@
 //= require bootstrap/dropdown
 //= require turbolinks
 //= require_tree .
+//= require faye
+//= require messages
