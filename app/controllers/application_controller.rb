@@ -4,21 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_filter :toggle_appear_offline
+  # before_filter :toggle_appear_offline
 
   after_filter :user_activity
-  
-  def toggle_appear_offline
-    puts "in toggle_appear_offline"
-    if params[:toggle_offline] && @current_user
-      puts "in the if"
-      puts @current_user.appear_offline
-      @current_user.appear_offline = !@current_user.appear_offline
-      puts "set appear_offline"
-      puts @current_user.appear_offline
-    end
-  end
 
+  def toggle_appear_offline
+    @user = current_user
+    if @user
+      @user.appear_offline = !@user.appear_offline
+      @user.save!
+    end
+    redirect_to :back
+  end
+  
   private
 
   def user_activity  
