@@ -1,12 +1,5 @@
-publisher = client.publish('/messages', {
-  message: '<%= j render @message %>' 
-});
+<% publish_to conversation_messages_path(@conversation) do %>
+	$("#msg").append("<%= j render 'message' %>");
+<% end %>
+$("#new_message")[0].reset();
 
-publisher.callback(function() {
-  $('#message_body').val('');
-  $('#new_message').find("input[type='submit']").val('Submit').prop('disabled', false);
-});
-
-publisher.errback(function() {
-  alert('Fail sending message');
-});

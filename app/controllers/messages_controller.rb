@@ -5,6 +5,13 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
+
+    if @messages.length==0
+      @last_user = nil
+    else
+      @last_user = @messages[@messages.length-1].user
+    end
+
     if @messages.length > 10
       @over_ten = true
       @messages = @messages[-10..-1]
@@ -27,20 +34,30 @@ class MessagesController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      if current_user
-        @messages = @conversation.messages
-        @message = @conversation.messages.new(message_params)
-        if !@message.save
-          flash[:message] = "Message cannot be blank"
-        end
-        format.js
-        format.html {redirect_to conversation_messages_path(@conversation)}
+      @message = @conversation.messages.new(message_params)
+      @messages = @conversation.messages
+      if @messages.length==0
+        @last_user = nil
       else
-        format.js
-        format.html {redirect_to root_url}
+        @last_user = @messages[@messages.length-2].user
       end
-    end
+      if @messages.length > 10
+        @over_ten = true
+        @messages = [@messages[-1]]
+      end
+      if params[:m]
+        @over_ten = false
+        @messages = @conversation.messages
+      end
+      if @messages.last
+        if @messages.last.user_id != current_user.id
+          @messages.last.read = true;
+        end
+      end
+      if !@message.save
+        flash[:message] = "Message cannot be blank"
+      end
+
   end
 
 private

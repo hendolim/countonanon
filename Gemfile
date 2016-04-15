@@ -29,6 +29,7 @@ gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 
 #heroku gem to convert to postgres
+gem 'private_pub'
 gem 'taps'
 gem 'jquery-turbolinks'
 gem 'faye-rails', '~> 2.0'
