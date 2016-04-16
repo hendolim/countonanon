@@ -10,22 +10,15 @@ Background:
     |account_2          |account_2@berkeley.edu |12345678           |
     |account_3          |account_3@berkeley.edu |12345678           |
 
-    Given I am logged in as account_1@berkeley.edu with qwertyuiop
-    Then I send message "Hello" to account_2
-    And I log out
+    And I setup a server for websocket
 
 Scenario: Correct logged in user
-	Given I am logged in as account_2@berkeley.edu with 12345678
-    Then I should see "New Message"
-	And I follow "Chat"
-	Then I should see "New Message"
-
-Scenario: The notif is opened
-    Given I am logged in as account_2@berkeley.edu with 12345678
+    When I am in account_1 browser
+    Given I am logged in as account_1@berkeley.edu with qwertyuiop
     And I follow "Chat"
-    Then I follow "account1"
-    Then I should not see "New Message"
-
-Scenario: Incorrect logged in user
-	Given I am logged in as account_3@berkeley.edu with 12345678
-	Then I should not see "New Message"
+    Then I follow "account_2"
+    When I am in account_2 browser
+    Given I am logged in as account_2@berkeley.edu with 12345678
+    Then I send message "Hello" to account_1
+    Then I am in account_1 browser
+	Then I should see ""

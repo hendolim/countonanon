@@ -37,3 +37,7 @@ When /^(?!I am in)(.*(?= in)) in (.*) browser$/ do |step, name|
   When %(I am in #{name} browser)
   And step
 end
+
+And /^I setup a server for websocket$/ do
+	setup_server
+end

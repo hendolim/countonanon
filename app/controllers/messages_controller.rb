@@ -34,6 +34,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+    respond_to do |format|
       @message = @conversation.messages.new(message_params)
       @messages = @conversation.messages
       if @messages.length==0
@@ -57,6 +58,10 @@ class MessagesController < ApplicationController
       if !@message.save
         flash[:message] = "Message cannot be blank"
       end
+
+      format.js
+      format.html {redirect_to conversation_messages_path(@conversation)}
+    end
 
   end
 
