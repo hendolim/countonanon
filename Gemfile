@@ -20,7 +20,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # SafeSpace Added Gems
   # Devise Tutorial  http://www.sitepoint.com/devise-authentication-in-depth/
   # Devise Demo      https://sitepoint-devise.herokuapp.com/
@@ -33,7 +32,8 @@ gem 'private_pub'
 gem 'taps'
 gem 'jquery-turbolinks'
 gem 'faye-rails', '~> 2.0'
-
+gem 'thin'
+gem 'foreman'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,7 +46,6 @@ gem 'faye-rails', '~> 2.0'
 
 group :production do
   gem 'pg'
-  gem 'thin'
 end
 
 group :development, :test do
