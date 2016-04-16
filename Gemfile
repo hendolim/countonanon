@@ -33,7 +33,7 @@ gem 'private_pub'
 gem 'taps'
 gem 'jquery-turbolinks'
 gem 'faye-rails', '~> 2.0'
-gem 'thin'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,6 +46,7 @@ gem 'thin'
 
 group :production do
   gem 'pg'
+  gem 'thin'
 end
 
 group :development, :test do
