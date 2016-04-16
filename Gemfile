@@ -27,10 +27,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '3.4.1'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
-
-#heroku gem to convert to postgres
-gem 'taps'
 gem "codeclimate-test-reporter", group: :test, require: nil
+#heroku gem to convert to postgres
+gem 'private_pub'
+gem 'taps'
+gem 'jquery-turbolinks'
+gem 'faye-rails', '~> 2.0'
+gem 'thin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

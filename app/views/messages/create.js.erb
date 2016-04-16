@@ -1,0 +1,5 @@
+<% publish_to conversation_messages_path(@conversation) do %>
+	$("#msg").append("<%= j render 'message' %>");
+	$("#msg").append("<%= j render 'notif' %>");
+<% end %>
+$("#new_message")[0].reset();
