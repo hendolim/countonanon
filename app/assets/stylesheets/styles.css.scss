@@ -11,6 +11,19 @@
 	margin-right: 5px;
 }
 
+#online-navbar  {
+	margin-top:22px;
+	margin-bottom:22px;
+	margin-right:0px;
+}
+
+#offline-navbar {
+	margin-top:22px;
+	margin-bottom:22px;
+	margin-right:0px;
+	background: #9d9d9d;
+}
+
 .offline-status-indicator {
 	border-radius: 50%;
 	width: 6px;
@@ -27,4 +40,30 @@
 
 .contact-list-name {
 	font-size: 1.1em;
+}
+
+.message {
+  background-color: #673AB7;
+  color: white;
+  border-radius: 17px;
+  margin: 5px 8px;
+  padding: 8px 13px;
+  width: auto;
+  height: 100%;
+}
+
+#curr {
+  background-color: #673AB7;
+  color: white;
+}
+
+#other {
+  background-color: #f2f2f2;
+  color: black;	
+}
+
+.message-username {
+	font-size: 1em;
+	margin-left: 8px;
+	margin-right: 8px;
 }

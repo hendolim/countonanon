@@ -1,13 +1,6 @@
 <% @messages.each do |message| %>
     <% if message.body %>
         <% user = User.find(message.user_id) %>
-        <li>
-        <% puts "msgleng : #{@messages.length}"%>
-        <% puts "user : #{user.username}"%>
-        <% puts "current_user : #{current_user.username}"%>
-        <% if !@last_user.nil? %>
-          <% puts "last_user : #{@last_user.username}"%>
-        <% end %>
         <% if current_user.username.eql? user.username %>
             <div style="text-align:right">
                 <% if !@last_user.username.eql? user.username %>
@@ -15,7 +8,6 @@
                      <small class="text-muted"><%= message.message_time %></small> 
                   </div>
                   <h4 class="media-heading"> <%= user.username %></h4>
-                  <% @last_user = user.username %>
                 <% end %>   
                 <%= message.body %>
                 <% @last_user = user %>
@@ -28,13 +20,11 @@
                      <small class="text-muted"><%= message.message_time %></small> 
                   </div>
                   <h4 class="media-heading"> <%= user.username %></h4>
-                  <% @last_user = user.username %>
                 <% end %>   
                 <%= message.body %>
                 <% @last_user = user %>
             </div>
             
         <% end %>
-        </li>
     <% end %>
 <% end %>

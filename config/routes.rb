@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :friendships
   devise_for :users, :controllers => {:destroy => "destroy"}
   root 'static_pages#home'
   get 'about' => 'static_pages#about', :as => :home_about
   get 'contact' => 'static_pages#contact', :as => :home_contact
   
+  get '/toggle_appear_offline', to: 'application#toggle_appear_offline', as: :toggle_appear_offline
   
   resources :conversations do
     resources :messages

@@ -1,5 +1,5 @@
 When (/^I send message (.*) to (.*)$/) do |message, user|
-	step "When I am chatting with #{user}"
+	step "When I am in a chat with #{user}"
 	step "And I fill in \"message_body\" with #{message}"
     step "And I press \"Send\""
 end
@@ -20,7 +20,18 @@ Given(/^I am logged in as (.*) with (.*)$/) do |email1,password|
   @current_user = User.find_by(email: email1 )
 end
 
-When (/I am chatting with (.*)$/) do |user2|
+Given(/^(.*) is (not )?appearing offline$/) do |user, online|
+    @user = User.find_by(username: user)
+    if online
+        @user.appear_offline = false
+        @user.save!
+    else
+        @user.appear_offline = true
+        @user.save!
+    end
+end
+
+When (/I am in a chat with (.*)$/) do |user2|
 	params = ActionController::Parameters.new({
 		sender_id: @current_user.id,
 		recipient_id: User.find_by(username: user2).id
@@ -40,4 +51,18 @@ end
 
 And /^I setup a server for websocket$/ do
 	setup_server
+end
+# Then /^I should see "([^"]*)" within "([^"]*)"$/ do |text, selector|
+#   find(:xpath, "//#{selector}[contains(text(),'#{text}')]").should_not(be_nil, "Could not find the text '#{text}' within the selector '#{selector}'")
+# end
+
+Then (/^I should (not )?see "([^"]*)" in the selector "([^"]*)"$/) do |not_see, text, selector|
+  if not_see
+    page.should_not have_css(selector, :text => text)
+  else
+    page.should have_css(selector, :text => text)
+  end
+end
+
+Given(/^I am not friends with (.*)$/) do |user|
 end

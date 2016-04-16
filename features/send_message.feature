@@ -13,7 +13,7 @@ Background:
     | user2        | user2@berkeley.edu | password2   |
 
     And I am logged in as user1@berkeley.edu with password1
-    And I am chatting with user2
+    And I am in a chat with user2
 
 Scenario: Send a message to user2
     When I fill in "message_body" with "Hi user2" 
