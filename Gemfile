@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '3.4.1'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
-
+gem "codeclimate-test-reporter", group: :test, require: nil
 #heroku gem to convert to postgres
 gem 'private_pub'
 gem 'taps'
