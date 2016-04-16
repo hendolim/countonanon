@@ -20,6 +20,17 @@ Given(/^I am logged in as (.*) with (.*)$/) do |email1,password|
   @current_user = User.find_by(email: email1 )
 end
 
+Given(/^(.*) is (not )?appearing offline$/) do |user, online|
+    @user = User.find_by(username: user)
+    if online
+        @user.appear_offline = false
+        @user.save!
+    else
+        @user.appear_offline = true
+        @user.save!
+    end
+end
+
 When (/I am in a chat with (.*)$/) do |user2|
 	params = ActionController::Parameters.new({
 		sender_id: @current_user.id,
@@ -36,6 +47,18 @@ end
 When /^(?!I am in)(.*(?= in)) in (.*) browser$/ do |step, name|
   When %(I am in #{name} browser)
   And step
+end
+
+# Then /^I should see "([^"]*)" within "([^"]*)"$/ do |text, selector|
+#   find(:xpath, "//#{selector}[contains(text(),'#{text}')]").should_not(be_nil, "Could not find the text '#{text}' within the selector '#{selector}'")
+# end
+
+Then (/^I should (not )?see "([^"]*)" in the selector "([^"]*)"$/) do |not_see, text, selector|
+  if not_see
+    page.should_not have_css(selector, :text => text)
+  else
+    page.should have_css(selector, :text => text)
+  end
 end
 
 Given(/^I am not friends with (.*)$/) do |user|
