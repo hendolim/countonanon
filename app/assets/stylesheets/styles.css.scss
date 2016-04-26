@@ -1,6 +1,14 @@
+.homepage-nav {
+	margin-bottom:0px;
+}
+
 .horizontal-align {
   display:flex;
   align-items:center;
+}
+
+.vertical-center {
+  text-align:center;
 }
 
 .online-status-indicator {
@@ -66,4 +74,29 @@
 	font-size: 1em;
 	margin-left: 8px;
 	margin-right: 8px;
+}
+
+.homepage {
+	height: 655px;
+	background-image: url(/assets/sea1.jpg);
+	background-size: 120%;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding: 0;
+	margin: 0;
+}
+
+.my-header {
+	color: white;
+	font-size: 55px;
+	font-weight: 500;
+	padding-top: 140px;
+	padding-bottom: 40px;
+}
+
+.tagline {
+	color: white;
+	font-size: 22px;
+	padding-bottom: 100px;
+	font-weight: 400;
 }
