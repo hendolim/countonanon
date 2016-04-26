@@ -44,7 +44,6 @@ class MessagesController < ApplicationController
       end
       if @messages.length > 10
         @over_ten = true
-        @messages = [@messages[-1]]
       end
       if params[:m]
         @over_ten = false
@@ -58,6 +57,8 @@ class MessagesController < ApplicationController
       if !@message.save
         flash[:message] = "Message cannot be blank"
       end
+
+      @messages = [@messages[-1]]
 
       format.js
       format.html {redirect_to conversation_messages_path(@conversation)}
