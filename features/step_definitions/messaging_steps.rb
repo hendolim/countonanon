@@ -66,3 +66,9 @@ end
 
 Given(/^I am not friends with (.*)$/) do |user|
 end
+
+When(/^I uncheck all checkboxes$/) do
+end
+
+When(/^I check "([^"]*)" in "([^"]*)"$/) do |arg1, arg2|
+end
