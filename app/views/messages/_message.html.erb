@@ -1,28 +1,34 @@
+<% last_user = nil %>
 <% @messages.each do |message| %>
     <% if message.body %>
         <% user = User.find(message.user_id) %>
+          
         <% if current_user.username.eql? user.username %>
             <div style="text-align:right">
-                <% if !@last_user.username.eql? user.username %>
+                <% if !last_user.eql? user.username %>
                   <div style="text-align:center">
-                     <small class="text-muted"><%= message.message_time %></small> 
+                     <small class="text-muted message-date"><%= message.message_time %></small> 
                   </div>
-                  <h4 class="media-heading"> <%= user.username %></h4>
-                <% end %>   
-                <%= message.body %>
-                <% @last_user = user %>
+                  <b class="message-username"> <%= user.username %></b>
+                  <% last_user = user.username %>
+                <% end %>
+                <div class="message-container" id="message-right">
+                    <div class="message" id="curr-message"><%= message.body %></div>
+                </div>
             </div>
             
         <% else %>
             <div>
-                <% if !@last_user.username.eql? user.username %>
+                <% if !last_user.eql? user.username %>
                   <div style="text-align:center">
-                     <small class="text-muted"><%= message.message_time %></small> 
+                     <small class="text-muted message-date"><%= message.message_time %></small> 
                   </div>
-                  <h4 class="media-heading"> <%= user.username %></h4>
-                <% end %>   
-                <%= message.body %>
-                <% @last_user = user %>
+                  <b class="message-username"> <%= user.username %></b>
+                  <% last_user = user.username %>
+                <% end %>
+                <div class="message-container">
+                    <div class="message" id="other-message"><%= message.body %></div>
+                </div>
             </div>
             
         <% end %>
