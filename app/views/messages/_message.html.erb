@@ -7,24 +7,28 @@
             <div style="text-align:right">
                 <% if !last_user.eql? user.username %>
                   <div style="text-align:center">
-                     <small class="text-muted"><%= message.message_time %></small> 
+                     <small class="text-muted message-date"><%= message.message_time %></small> 
                   </div>
                   <b class="message-username"> <%= user.username %></b>
                   <% last_user = user.username %>
                 <% end %>
-                <div class="message" id="curr"><%= message.body %></div>
+                <div class="message-container" id="message-right">
+                    <div class="message" id="curr-message"><%= message.body %></div>
+                </div>
             </div>
             
         <% else %>
             <div>
                 <% if !last_user.eql? user.username %>
                   <div style="text-align:center">
-                     <small class="text-muted"><%= message.message_time %></small> 
+                     <small class="text-muted message-date"><%= message.message_time %></small> 
                   </div>
                   <b class="message-username"> <%= user.username %></b>
                   <% last_user = user.username %>
                 <% end %>
-                <div class="message" id="other"><%= message.body %></div>
+                <div class="message-container">
+                    <div class="message" id="other-message"><%= message.body %></div>
+                </div>
             </div>
             
         <% end %>
