@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 20160415233316) do
     t.integer "profile_id",        null: false
   end
 
-  create_table "characteristics_users", id: false, force: :cascade do |t|
-    t.integer "characteristic_id", null: false
-    t.integer "user_id",           null: false
-  end
-
-  add_index "characteristics_users", ["characteristic_id", "user_id"], name: "index_characteristics_users_on_characteristic_id_and_user_id"
-  add_index "characteristics_users", ["user_id", "characteristic_id"], name: "index_characteristics_users_on_user_id_and_characteristic_id"
-
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
