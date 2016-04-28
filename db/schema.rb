@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414003210) do
+ActiveRecord::Schema.define(version: 20160415233316) do
+
+  create_table "characteristics", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "characteristics_profiles", id: false, force: :cascade do |t|
+    t.integer "characteristic_id", null: false
+    t.integer "profile_id",        null: false
+  end
+
+  create_table "characteristics_users", id: false, force: :cascade do |t|
+    t.integer "characteristic_id", null: false
+    t.integer "user_id",           null: false
+  end
+
+  add_index "characteristics_users", ["characteristic_id", "user_id"], name: "index_characteristics_users_on_characteristic_id_and_user_id"
+  add_index "characteristics_users", ["user_id", "characteristic_id"], name: "index_characteristics_users_on_user_id_and_characteristic_id"
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -39,6 +58,30 @@ ActiveRecord::Schema.define(version: 20160414003210) do
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "class_rank"
+    t.string   "socioeconomic_status"
+    t.string   "living_situation"
+    t.string   "sexual_orientation"
+    t.integer  "comfort_with_sexuality"
+    t.integer  "age"
+    t.boolean  "is_first_generation_college_student"
+    t.boolean  "is_physically_disabled"
+    t.boolean  "is_parent"
+    t.boolean  "is_single_parent"
+    t.boolean  "is_from_foster_care"
+    t.boolean  "is_intercollegiate_athlete"
+    t.boolean  "is_military"
+    t.boolean  "is_out_of_state_student"
+    t.boolean  "is_international_student"
+    t.boolean  "is_transfer_student"
+    t.integer  "user_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

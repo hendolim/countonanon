@@ -1,0 +1,57 @@
+<fieldset class="search-field">
+  <legend>Search Our Database</legend>
+  <%= search_form_for @search do |f| %>
+    <!-- <div class="field">
+      <%= f.label :class_rank_cont, "Class Rank contains" %>
+      <%= f.text_field :class_rank_cont %>
+    </div> -->
+
+    <div class="field">
+    <h1>Mental Health Disorder</h1>
+    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.find((1..10).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <h1> Gender </h1>
+    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.find((11..18).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <h1> Ethnicity </h1>
+    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.find((18..34).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <h1>Academic Focus</h1>
+    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.find((34..50).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <h1>Religion</h1>
+    <%= f.collection_check_boxes :characteristics_id_in_any, Characteristic.find((50..63).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+
+    <div class="actions"><%= f.submit "Search", class: 'btn btn-primary' %></div>
+  <% end %>
+</fieldset>

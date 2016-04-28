@@ -21,11 +21,22 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :lockable #, :confirmable
          # add :confirmable when ready to email
   validate :berkeley_email
+  before_save :create_profile
   validates_uniqueness_of :username
+
+  has_one :profile
   
   def berkeley_email
     if email.present? and not email.match(/.*@berkeley.edu$/)
       errors.add :email, "Must use berkeley.edu email"
+    end
+  end
+
+  def create_profile
+    if profile.nil?
+      prof = Profile.create()
+      prof.user_id = self.id
+      prof.save
     end
   end
 

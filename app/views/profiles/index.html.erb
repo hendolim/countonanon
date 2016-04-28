@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profiles</h1>
+
+
+    <% @profiles.each do |profile| %>
+        <h5><%= link_to profile.user.username, profile %></h5>
+    <% end %>
+
+
+<br>
+
+<%= render '/profiles/search_form' %>
+
+

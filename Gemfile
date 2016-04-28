@@ -27,6 +27,10 @@ gem 'devise', '3.4.1'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 gem "codeclimate-test-reporter", group: :test, require: nil
+# http://www.sitepoint.com/save-multiple-checkbox-values-database-rails/
+  # Profile Characteristic Model Search
+gem 'ransack'
+
 #heroku gem to convert to postgres
 gem 'private_pub'
 gem 'taps'
