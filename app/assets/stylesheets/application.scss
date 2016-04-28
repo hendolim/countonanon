@@ -3,6 +3,7 @@
 @import 'bootstrap/theme';
 @import "styles";
 @import "message_styles";
+@import "conversation";
 
 .alert-alert {
   @extend .alert-warning;
