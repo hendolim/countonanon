@@ -1,14 +1,12 @@
 <% content_for :top_content do %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1>SafeSpace</h1>
+  <div class="jumbotron homepage">
+    <div class="container vertical-center">
+      <div class="my-header">SafeSpace</div>
       
-      <p>An anonymous, peer-led chat for UC Berkeley undergraduate students to comfortably share their similar mental health issues in a virtual environment.</p>
-      <p>Sign Up to get started.</p>
-      
-      <p>
+      <div class="tagline">An anonymous, peer-led chat for UC Berkeley undergraduate<br>students to comfortably share their similar mental health issues<br>in a virtual environment.</div>
+      <div class="my-button">
         <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      </p>
+      </div>
     </div>
   </div>
 <% end %>
