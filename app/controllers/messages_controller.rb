@@ -59,6 +59,7 @@ class MessagesController < ApplicationController
       end
 
       @messages = [@messages[-1]]
+      @sender = @current_user
 
       format.js
       format.html {redirect_to conversation_messages_path(@conversation)}
