@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profiles</h1>
+
+<table>
+<!--   <thead>
+    <tr>
+      <th>Characteristics</th>
+      <th>Class rank</th>
+      <th>Socioeconomic status</th>
+      <th>Living situation</th>
+      <th>Sexual orientation</th>
+      <th>Comfort with sexuality</th>
+      <th>Age</th>
+      <th>Is first generation college student</th>
+      <th>Is physically disabled</th>
+      <th>Is parent</th>
+      <th>Is single parent</th>
+      <th>Is from foster care</th>
+      <th>Is intercollegiate athlete</th>
+      <th>Is military</th>
+      <th>Is out of state student</th>
+      <th>Is international student</th>
+      <th>Is transfer student</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead> -->
+
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= profile.user.username %></td>
+        <td><%= profile.characteristics.map(&:name).sort.join(", ") %></td>
+        <td><%= profile.class_rank %></td>
+        <td><%= profile.socioeconomic_status %></td>
+        <td><%= profile.living_situation %></td>
+        <td><%= profile.sexual_orientation %></td>
+        <td><%= profile.comfort_with_sexuality %></td>
+        <td><%= profile.age %></td>
+        <td><%= profile.is_first_generation_college_student if profile.is_first_generation_college_student %></td>
+        <td><%= profile.is_physically_disabled if profile.is_physically_disabled %></td>
+        <td><%= profile.is_parent if profile.is_parent %></td>
+        <td><%= profile.is_single_parent if profile.is_single_parent %></td>
+        <td><%= profile.is_from_foster_care if profile.is_from_foster_care %></td>
+        <td><%= profile.is_intercollegiate_athlete if profile.is_intercollegiate_athlete %></td>
+        <td><%= profile.is_military if profile.is_military %></td>
+        <td><%= profile.is_out_of_state_student if profile.is_out_of_state_student %></td>
+        <td><%= profile.is_international_student if profile.is_international_student %></td>
+        <td><%= profile.is_transfer_student if profile.is_transfer_student %></td>
+        <!-- <td><%= profile.user %></td> -->
+        <td><%= link_to 'Show', profile %></td>
+        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= render '/profiles/search_form' %>
+
+<%= link_to 'New Profile', new_profile_path %>

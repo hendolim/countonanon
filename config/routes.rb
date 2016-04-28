@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :characteristics
+  resources :profiles
   devise_for :users, :controllers => {:destroy => "destroy"}
   root 'static_pages#home'
   get 'about' => 'static_pages#about', :as => :home_about

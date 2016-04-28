@@ -27,6 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '3.4.1'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
+# http://www.sitepoint.com/save-multiple-checkbox-values-database-rails/
+  # Profile Characteristic Model Search
+gem 'ransack'
 
 #heroku gem to convert to postgres
 gem 'taps'

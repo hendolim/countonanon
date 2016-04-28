@@ -1,0 +1,133 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= render '/profiles/new_vars' %>
+
+  <div class="field">
+    <%= f.label :class_rank %><br>
+    <%= f.select :class_rank, @arr_class_rank , class: "form-control col-md-6 "%>
+  </div>
+  <div class="field">
+    <%= f.label :socioeconomic_status %><br>
+    <%= f.select :socioeconomic_status, @arr_socioeconomic_status , class: "form-control col-md-6 "%>
+  </div>
+  <div class="field">
+    <%= f.label :living_situation %><br>
+    <%= f.select :living_situation, @arr_living_situation , class: "form-control col-md-6 "%>
+  </div>
+  <div class="field">
+    <%= f.label :sexual_orientation %><br>
+    <%= f.select :sexual_orientation , @arr_sexual_orientation , class: "form-control col-md-6 "%>
+  </div>
+  <div class="field">
+    <%= f.label :comfort_with_sexuality %><br>
+    <%= f.select :comfort_with_sexuality , @arr_comfort_with_sexuality, class: "form-control col-md-6 "%>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_first_generation_college_student %>
+    <%= f.label :is_first_generation_college_student %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_physically_disabled %>
+    <%= f.label :is_physically_disabled %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_parent %>
+    <%= f.label :is_parent %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_single_parent %>
+    <%= f.label :is_single_parent %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_from_foster_care %>
+    <%= f.label :is_from_foster_care %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_intercollegiate_athlete %>
+    <%= f.label :is_intercollegiate_athlete %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_military %>
+    <%= f.label :is_military %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_out_of_state_student %>
+    <%= f.label :is_out_of_state_student %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_international_student %>
+    <%= f.label :is_international_student %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_transfer_student %>
+    <%= f.label :is_transfer_student %><br>
+  </div>
+  <div class="field">
+    <h1>Mental Health Disorder</h1>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((1..10).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <h1> Gender </h1>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((11..18).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <h1> Ethnicity </h1>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((18..34).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <h1>Academic Focus</h1>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((34..50).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <h1>Religion</h1>
+    <%= f.collection_check_boxes :characteristic_ids, Characteristic.find((50..63).to_a), :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+  

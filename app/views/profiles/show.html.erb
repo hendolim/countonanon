@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Class rank:</strong>
+  <%= @profile.class_rank %>
+</p>
+
+<p>
+  <strong>Socioeconomic status:</strong>
+  <%= @profile.socioeconomic_status %>
+</p>
+
+<p>
+  <strong>Living situation:</strong>
+  <%= @profile.living_situation %>
+</p>
+
+<p>
+  <strong>Sexual orientation:</strong>
+  <%= @profile.sexual_orientation %>
+</p>
+
+<p>
+  <strong>Comfort with sexuality:</strong>
+  <%= @profile.comfort_with_sexuality %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>Is first generation college student:</strong>
+  <%= @profile.is_first_generation_college_student %>
+</p>
+
+<p>
+  <strong>Is physically disabled:</strong>
+  <%= @profile.is_physically_disabled %>
+</p>
+
+<p>
+  <strong>Is parent:</strong>
+  <%= @profile.is_parent %>
+</p>
+
+<p>
+  <strong>Is single parent:</strong>
+  <%= @profile.is_single_parent %>
+</p>
+
+<p>
+  <strong>Is from foster care:</strong>
+  <%= @profile.is_from_foster_care %>
+</p>
+
+<p>
+  <strong>Is intercollegiate athlete:</strong>
+  <%= @profile.is_intercollegiate_athlete %>
+</p>
+
+<p>
+  <strong>Is military:</strong>
+  <%= @profile.is_military %>
+</p>
+
+<p>
+  <strong>Is out of state student:</strong>
+  <%= @profile.is_out_of_state_student %>
+</p>
+
+<p>
+  <strong>Is international student:</strong>
+  <%= @profile.is_international_student %>
+</p>
+
+<p>
+  <strong>Is transfer student:</strong>
+  <%= @profile.is_transfer_student %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @profile.user %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to "Back", :back, class: 'btn btn-default btn-sm' %>
