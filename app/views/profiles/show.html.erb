@@ -1,27 +1,29 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @profile.user.username %></h1>
+
 <p>
-  <strong>Class rank:</strong>
+  <strong>Class Rank:</strong>
   <%= @profile.class_rank %>
 </p>
 
 <p>
-  <strong>Socioeconomic status:</strong>
+  <strong>Socioeconomic Status:</strong>
   <%= @profile.socioeconomic_status %>
 </p>
 
 <p>
-  <strong>Living situation:</strong>
+  <strong>Living Situation:</strong>
   <%= @profile.living_situation %>
 </p>
 
 <p>
-  <strong>Sexual orientation:</strong>
+  <strong>Sexual Orientation:</strong>
   <%= @profile.sexual_orientation %>
 </p>
 
 <p>
-  <strong>Comfort with sexuality:</strong>
+  <strong>Comfort With Sexuality:</strong>
   <%= @profile.comfort_with_sexuality %>
 </p>
 
@@ -31,47 +33,47 @@
 </p>
 
 <p>
-  <strong>Is first generation college student:</strong>
+  <strong>First Generation College Student:</strong>
   <%= @profile.is_first_generation_college_student %>
 </p>
 
 <p>
-  <strong>Is physically disabled:</strong>
+  <strong>Physically Disabled:</strong>
   <%= @profile.is_physically_disabled %>
 </p>
 
 <p>
-  <strong>Is parent:</strong>
+  <strong>Parent:</strong>
   <%= @profile.is_parent %>
 </p>
 
 <p>
-  <strong>Is single parent:</strong>
+  <strong>Single Parent:</strong>
   <%= @profile.is_single_parent %>
 </p>
 
 <p>
-  <strong>Is from foster care:</strong>
+  <strong>From Foster Care:</strong>
   <%= @profile.is_from_foster_care %>
 </p>
 
 <p>
-  <strong>Is intercollegiate athlete:</strong>
+  <strong>Intercollegiate Athlete:</strong>
   <%= @profile.is_intercollegiate_athlete %>
 </p>
 
 <p>
-  <strong>Is military:</strong>
+  <strong>Military:</strong>
   <%= @profile.is_military %>
 </p>
 
 <p>
-  <strong>Is out of state student:</strong>
+  <strong>Out Of State Student:</strong>
   <%= @profile.is_out_of_state_student %>
 </p>
 
 <p>
-  <strong>Is international student:</strong>
+  <strong>International Student:</strong>
   <%= @profile.is_international_student %>
 </p>
 
@@ -80,10 +82,10 @@
   <%= @profile.is_transfer_student %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
+<h1> Characteristics </h1>
+<% @profile.characteristics.each do |characteristic| %>
+  <h5> <%= characteristic.name %> </h5>
+<% end %>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Edit', edit_profile_path(@profile) , class: 'btn btn-default btn-sm' %> |
 <%= link_to "Back", :back, class: 'btn btn-default btn-sm' %>
