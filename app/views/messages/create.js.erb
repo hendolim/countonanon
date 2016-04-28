@@ -1,5 +1,11 @@
 <% publish_to conversation_messages_path(@conversation) do %>
+	var sender_id = "<%= @message.user.id %>";
+    var reciever_id = $('meta[name=user-id]').attr("content");
+
 	$("#msg").append("<%= j render 'message' %>");
-	$("#msg").append("<%= j render 'notif' %>");
+
+	if(sender_id != reciever_id){
+		$("#msg").append("<%= j render 'notif' %>");
+	}
 <% end %>
 $("#new_message")[0].reset();

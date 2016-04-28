@@ -4,9 +4,6 @@
 	<link href="/assets/jquery.growl.css" rel="stylesheet" type="text/css" />
 </head>
 
-<% puts  "curuser #{@current_user.id} sender #{@sender.id}" %>
-<% if @current_user.id != @sender.id %>
-	<script type="text/javascript">
-	  $.growl.notice({ message: "You got a new message!" });
-	</script>
-<% end %>
+<script type="text/javascript">
+  $.growl.notice({ message: "You got a new message!" });
+</script>
