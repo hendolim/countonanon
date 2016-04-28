@@ -6,9 +6,11 @@
                   <div style="text-align:center">
                      <small class="text-muted"><%= message.message_time %></small> 
                   </div>
-                  <h4 class="media-heading"> <%= user.username %></h4>
+                  <b class="message-username"> <%= user.username %></b>
                 <% end %>   
-                <%= message.body %>
+                <div class="message-container">
+                    <div class="message" id="other-message"><%= message.body %></div>
+                </div>
             </div>
     <%end%>
  <%end%>
