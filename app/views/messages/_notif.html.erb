@@ -5,5 +5,10 @@
 </head>
 
 <script type="text/javascript">
-  $.growl.notice({ message: "You got a new message!" });
+  var sender = "<%= @message.user.username %>";
+  var msg = "<%= @message.body %>"
+  if (msg.length > 35) {
+  	msg = msg.substring(0,35) + "..."
+  } 
+  $.growl.notice({ title: sender, message: msg});
 </script>

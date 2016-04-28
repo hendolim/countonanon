@@ -15,6 +15,7 @@
         <%= link_to 'SafeSpace', root_path, class: 'navbar-brand' %>
       </div>
       <div id="navbar">
+        <ul class="media-list" id="notif">
         <ul class="nav navbar-nav">
           <li><%= link_to "About", home_about_path %></li>
           <li><%= link_to 'Contact', home_contact_path %></li>
@@ -70,6 +71,7 @@
         <h1><%= yield :header %></h1>
       <%= yield %>
     </div>
-  
+   </ul>
   </body>
 </html>
+<%= subscribe_to '/about' %>

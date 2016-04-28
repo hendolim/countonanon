@@ -1,4 +1,4 @@
-<% publish_to conversation_messages_path(@conversation) do %>
+<% publish_to '/about' do %>
 	var sender_id = "<%= @message.user.id %>";
     var current_id = $('meta[name=user-id]').attr("content");
 
@@ -10,7 +10,7 @@
 	}
 
 	if(sender_id != current_id){
-		$("#msg").append("<%= j render 'notif' %>");
+		$("#notif").append("<%= j render 'notif' %>");
 	}
 <% end %>
 $("#new_message")[0].reset();
