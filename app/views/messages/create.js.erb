@@ -2,11 +2,12 @@
 	var sender_id = "<%= @message.user.id %>";
     var current_id = $('meta[name=user-id]').attr("content");
 
-    window.alert(sender_id);
-    window.alert("huahsdaoidsoai");
-    window.alert(current_id);
-
-	$("#msg").append("<%= j render 'message' %>");
+    if(sender_id != current_id){
+		$("#msg").append("<%= j render 'receiver' %>");
+	}
+	else{
+		$("#msg").append("<%= j render 'sender' %>");
+	}
 
 	if(sender_id != current_id){
 		$("#msg").append("<%= j render 'notif' %>");
