@@ -6,12 +6,12 @@
 	  
 	    <div class="col-md-4 filters-container">
 	        <legend class="filter-legend">Filters</legend>
-	        <%=  '/profiles/search_form' %>
+	        <%= render '/profiles/search_form' %>
 	    </div>
 	    
 	    <div class="col-md-8 profile-results-container">
 	        <legend style="margin-bottom:-5px">Results</legend>
-	        <div class="results-container">
+	        <div class="results-contfainer">
 	            
                 <% @profiles.each do |profile| %>
                     <% if profile.user != current_user%>

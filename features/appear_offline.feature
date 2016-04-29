@@ -13,6 +13,7 @@ Background:
     # And I am on the SafeSpace home page
 
 Scenario: user1 appears offline
+  
     Given I am in user1 browser
     And I am logged in as user1@berkeley.edu with password1
     And user1 is not appearing offline
