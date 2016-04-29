@@ -22,7 +22,7 @@ Scenario: user1 appears offline
     
     When I am in user2 browser
     And I am logged in as user2@berkeley.edu with password2
-    And I follow "Chat"
+    And I am on the search page
     Then I should see "user1"
     And I should see "Offline" in the selector "div.status-text"
     And I should not see "Online" in the selector "div.status-text"
@@ -37,7 +37,7 @@ Scenario: user1 appears online
     
     When I am in user2 browser
     And I am logged in as user2@berkeley.edu with password2
-    And I follow "Chat"
+    And I follow "People"
     Then I should see "user1"
     And I should see "Online" in the selector "div.status-text"
     And I should not see "Offline" in the selector "div.status-text"

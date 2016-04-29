@@ -18,7 +18,7 @@ module NavigationHelpers
         '/conversations'
         
     when /^the search page$/
-    
+        '/profiles'
     else
       begin
         page_name =~ /^the (.*) page$/
