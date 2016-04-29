@@ -11,8 +11,15 @@ Background:
     | username     | email              | password    |
     | user1        | user1@berkeley.edu | password1   |
     | user2        | user2@berkeley.edu | password2   |
-
-    And I am logged in as user1@berkeley.edu with password1
+    When I am in user2 browser
+    Then I am logged in as user2@berkeley.edu with password2
+    And I follow "Chat"
+    And I follow "Add Friend"
+    When I am in user1 browser
+    Then I am logged in as user1@berkeley.edu with password1
+    And I follow "Chat"
+    And I follow "Accept"
+    
     And I am in a chat with user2
 
 Scenario: Send a message to user2
