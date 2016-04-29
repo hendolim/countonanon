@@ -10,6 +10,21 @@ When (/^I log out$/) do
 	}
 end
 
+Given(/^user (.*) email (.*) password (.*) friend with user (.*) email (.*) password (.*)$/) do |user1,email1,pass1,user2,email2,pass2|
+  steps %{
+    When I am in user2 browser
+    Then I am logged in as email2 with pass2
+    And I follow "Chat"
+    # And I follow "Add Friend"
+    # When I am in user1 browser
+    # Then I am logged in as email1 with pass1
+    # And I follow "Chat"
+    # And I follow "Accept"
+  }
+  @current_user = User.find_by(email: email1 )
+end
+
+
 Given(/^I am logged in as (.*) with (.*)$/) do |email1,password|
   steps %{
     When I am on the Sign In page
