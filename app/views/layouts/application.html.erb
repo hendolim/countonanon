@@ -9,13 +9,12 @@
   </head>
   <body>
     
-    <nav class="navbar navbar-inverse homepage-nav">
+  <nav class="navbar navbar-inverse homepage-nav">
     <div class="container">
       <div class="navbar-header">
         <%= link_to 'SafeSpace', root_path, class: 'navbar-brand' %>
       </div>
       <div id="navbar">
-        <ul class="media-list" id="notif">
         <ul class="nav navbar-nav">
           <li><%= link_to "About", home_about_path %></li>
           <li><%= link_to 'Contact', home_contact_path %></li>
@@ -56,6 +55,8 @@
       </div>
     </div>
   </nav>
+  
+  <div class="media-list" id="notif"></div>
   
     <div class="container">
       <% flash.each do |key, value| %>
