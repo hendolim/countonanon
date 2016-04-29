@@ -13,7 +13,7 @@ Background:
 Scenario: A user is offline
     When I am in user1 browser
     Then I am logged in as user1@berkeley.edu with password1
-    And I follow "Chat"
+    And I follow "People"
     Then I should see "user2"
     Then I should see "Offline" in the selector "div.status-text"
     Then I should not see "Online" in the selector "div.status-text"
@@ -24,6 +24,6 @@ Scenario: A user is online
 
     Then I am in user1 browser
     Then I am logged in as user1@berkeley.edu with password1
-    And I follow "Chat"
+    And I follow "People"
     Then I should see "Online" in the selector "div.status-text"
     Then I should not see "Offline" in the selector "div.status-text"
